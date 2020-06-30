@@ -1,0 +1,188 @@
+<script src="/login/status"></script>
+<script>
+  if (!isLogin) location.href = 'login.html';
+</script>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <title>Add new post &laquo; Admin</title>
+  <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/vendors/nprogress/nprogress.js"></script>
+</head>
+
+<body>
+  <script>NProgress.start()</script>
+
+  <div class="main">
+    <nav class="navbar">
+      <button class="btn btn-default navbar-btn fa fa-bars"></button>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="password-reset.html"><i class="fa fa-user"></i>修改密码</a></li>
+        <li><a href="login.html"><i class="fa fa-sign-out"></i>退出</a></li>
+      </ul>
+    </nav>
+    <div class="container-fluid" id="parentBox">
+      <div class="page-title">
+        <h1>写文章</h1>
+      </div>
+      <!-- 有错误信息时展示 -->
+      <!-- <div class="alert alert-danger">
+        <strong>错误！</strong>发生XXX错误
+      </div> -->
+      <form class="row" id="addForm">
+        <div class="col-md-9">
+          <div class="form-group">
+            <label for="title">标题</label>
+            <input id="title" class="form-control input-lg" type="text" placeholder="文章标题" name="title">
+          </div>
+          <div class="form-group">
+            <label for="content">内容</label>
+            <textarea id="content" class="form-control input-lg" cols="30" rows="10" placeholder="内容"
+              name="content"></textarea>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="feature">文章封面</label>
+            <!-- show when image chose -->
+            <img class="help-block thumbnail" style="display: none">
+            <input id="feature" class="form-control" type="file">
+            <input type="hidden" name="thumbnail" id="thumbnail">
+          </div>
+          <div class="form-group">
+            <label for="category">所属分类</label>
+            <select id="category" class="form-control" name="category">
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="created">发布时间</label>
+            <input id="created" class="form-control" type="datetime-local" name="createAt">
+          </div>
+          <div class="form-group">
+            <label for="status">状态</label>
+            <select id="status" class="form-control" name="state">
+              <option value="0">草稿</option>
+              <option value="1">已发布</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">保存</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="aside">
+    <div class="profile">
+      <img class="avatar">
+      <h3 class="name"></h3>
+    </div>
+    <ul class="nav">
+      <li>
+        <a href="index.html"><i class="fa fa-dashboard"></i>仪表盘</a>
+      </li>
+      <li class="active">
+        <a href="#menu-posts" data-toggle="collapse">
+          <i class="fa fa-thumb-tack"></i>文章<i class="fa fa-angle-right"></i>
+        </a>
+        <ul id="menu-posts" class="collapse in">
+          <li><a href="posts.html">所有文章</a></li>
+          <li class="active"><a href="post-add.html">写文章</a></li>
+          <li><a href="categories.html">分类目录</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="comments.html"><i class="fa fa-comments"></i>评论</a>
+      </li>
+      <li>
+        <a href="users.html"><i class="fa fa-users"></i>用户</a>
+      </li>
+      <li>
+        <a href="#menu-settings" class="collapsed" data-toggle="collapse">
+          <i class="fa fa-cogs"></i>设置<i class="fa fa-angle-right"></i>
+        </a>
+        <ul id="menu-settings" class="collapse">
+          <li><a href="slides.html">图片轮播</a></li>
+          <li><a href="settings.html">网站设置</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script src="../assets/vendors/jquery/jquery.js"></script>
+  <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../assets/vendors/art-template/template-web.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <!-- 分类目录模板 -->
+  <script type="text/html" id="categoryTpl">
+    {{each data}}
+    <option value="{{@$value._id}}">{{$value.title}}</option>
+    {{/each}}
+  </script>
+  <script type="text/html" id="modifyTpl">
+    <div class="page-title">
+      <h1>修改文章</h1>
+    </div>
+    <!-- 有错误信息时展示 -->
+    <!-- <div class="alert alert-danger">
+      <strong>错误！</strong>发生XXX错误
+    </div> -->
+    <form class="row" id="modifyForm">
+      <div class="col-md-9">
+        <div class="form-group">
+          <label for="title">标题</label>
+          <input id="title" class="form-control input-lg" type="text" placeholder="文章标题" name="title" value="{{title}}">
+        </div>
+        <div class="form-group">
+          <label for="content">内容</label>
+          <textarea id="content" class="form-control input-lg" cols="30" rows="10" placeholder="内容"
+            name="content">{{content}}</textarea>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="feature">文章封面</label>
+          <!-- show when image chose -->
+          <img class="help-block thumbnail" style="display: none">
+          <input id="feature" class="form-control" type="file">
+          <input type="hidden" name="thumbnail" id="thumbnail" value="{{thumbnail}}">
+        </div>
+        <div class="form-group">
+          <label for="category">所属分类</label>
+            <select id="category" class="form-control" name="category">   
+              {{each categories}} 
+            <option value="{{@$value._id}}" {{category==$value._id?"selected":""}}>{{$value.title}}</option>
+              {{/each}}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="created">发布时间</label>
+          <input id="created" class="form-control" type="datetime-local" name="createAt" value="{{createAt.substr(0,createAt.lastIndexOf(':'))}}">
+        </div>
+        <div class="form-group">
+          <label for="status">状态</label>
+          <select id="status" class="form-control" name="state">
+            <option value="0" {{state==0?"selected":""}}>草稿</option>
+            <option value="1" {{state==1?"selected":""}}>已发布</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">修改</button>
+        </div>
+      </div>
+    </form>
+  </script>
+  <script src="../assets/js/post-add.js"></script>
+  <script>NProgress.done()</script>
+
+</body>
+
+</html>

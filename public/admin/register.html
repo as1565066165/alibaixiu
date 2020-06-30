@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <script src="../assets/vendors/jquery/jquery.min.js"></script>
+    <script src="../assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/register.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>阿里百秀用户注册</h1>
+        <form id="registerForm">
+            <!-- alert-success alert-danger -->
+            <div class="alert" role="alert" id="info" style="display: none;"></div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">邮箱地址</label>
+                <input type="email" class="form-control" id="email" placeholder="请输入邮箱" name="email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">用户昵称</label>
+                <input type="text" class="form-control" id="nickName" placeholder="请输入用户昵称" name="nickName">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">选择用户头像</label>
+                <input type="file" id="file">
+                <input type="hidden" name="avatar" id="hiddenAvatar">
+                <p class="help-block">选择你想使用的用户头像</p>
+                <img src="" alt="" id="preview">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">用户密码</label>
+                <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword2">确认密码</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="再次输入密码">
+            </div>
+            <button type="submit" class="btn btn-default">注册</button>
+        </form>
+    </div>
+    <script src="../assets/js/register.js"></script>
+</body>
+
+</html>

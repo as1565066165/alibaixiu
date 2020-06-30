@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阿里百秀-发现生活，发现美!</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/vendors/nprogress/nprogress.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="topnav">
+      <ul class="navBox"></ul>
+    </div>
+    <div class="header">
+      <h1 class="logo"><a href="index.html"><img src="assets/img/logo.png" alt=""></a></h1>
+      <ul class="nav navBox"></ul>
+      <div class="search">
+        <form>
+          <input type="text" class="keys" placeholder="输入关键字">
+          <input type="submit" class="btn" value="搜索">
+        </form>
+      </div>
+    </div>
+    <div class="aside">
+      <div class="widgets">
+        <h4>搜索</h4>
+        <div class="body search">
+          <form>
+            <input type="text" class="keys" placeholder="输入关键字">
+            <input type="submit" class="btn" value="搜索">
+          </form>
+        </div>
+      </div>
+      <div class="widgets">
+        <h4>随机推荐</h4>
+        <ul class="body random" id="randomBox"></ul>
+      </div>
+      <div class="widgets">
+        <h4>最新评论</h4>
+        <ul class="body discuz" id="commentBox"></ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="panel new">
+        <h3 id="categoryTitle"></h3>
+        <div id="listBox"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>© 2020 本站由小白程序员完成</p>
+    </div>
+  </div>
+  <script src="assets/vendors/jquery/jquery.js"></script>
+  <script src="assets/vendors/nprogress/nprogress.js"></script>
+  <script src="assets/vendors/art-template/template-web.js"></script>
+  <script src="assets/js/dateformat.js"></script>
+  <script src="assets/js/public.js"></script>
+  <script src="assets/js/list.js"></script>
+  <script type="text/html" id="listTpl">
+    {{each data}}
+    <div class="entry">
+      <div class="head">
+        <span class="sort">{{$value.category.title}}</span>
+        <a href="detail.html?id={{$value._id}}">{{$value.title}}</a>
+      </div>
+      <div class="main">
+        <p class="info">{{$value.author.role}} 发表于 {{$imports.formatDate($value.createAt)}}</p>
+        <p class="brief">
+          {{$value.content.substr(0,80)+'...'}}
+        </p>
+        <p class="extra">
+          <span class="reading">阅读({{$value.meta.views}})</span>
+          <span class="comment">评论({{$value.meta.comments}})</span>
+          <a href="javascript:;" class="like" id="like" data-id="{{$value._id}}">
+            <i class="fa fa-thumbs-up"></i>
+            <span>赞({{$value.meta.likes}})</span>
+          </a>
+          <a href="list.html?categoryId={{$value.category._id}}" class="tags">
+            分类：<span>{{$value.category.title}}</span>
+          </a>
+        </p>
+        <a href="detail.html?id={{$value._id}}" class="thumb">
+          <img src="{{$value.thumbnail}}" alt="">
+        </a>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+</body>
+
+</html>

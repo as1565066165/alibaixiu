@@ -1,0 +1,119 @@
+<script src="/login/status"></script>
+<script>
+  if (!isLogin) location.href = 'login.html';
+</script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <title>Settings &laquo; Admin</title>
+  <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../assets/vendors/nprogress/nprogress.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/vendors/nprogress/nprogress.js"></script>
+</head>
+
+<body>
+  <script>NProgress.start()</script>
+
+  <div class="main">
+    <nav class="navbar">
+      <button class="btn btn-default navbar-btn fa fa-bars"></button>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="password-reset.html"><i class="fa fa-user"></i>修改密码</a></li>
+        <li><a href="login.html"><i class="fa fa-sign-out"></i>退出</a></li>
+      </ul>
+    </nav>
+    <div class="container-fluid">
+      <div class="page-title">
+        <h1>网站设置</h1>
+      </div>
+      <!-- 有错误信息时展示 -->
+      <!-- <div class="alert alert-danger">
+        <strong>错误！</strong>发生XXX错误
+      </div> -->
+      <form class="form-horizontal" id="settingsForm">
+        <div class="form-group">
+          <label for="site_logo" class="col-sm-2 control-label">网站图标</label>
+          <div class="col-sm-6">
+            <label class="form-image">
+              <input type="file" id="logo">
+              <img src="../assets/img/logo.png" id="preview">
+              <i class="mask fa fa-upload"></i>
+              <input type="hidden" name="logo" id="hiddenLogo">
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">站点名称</label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" placeholder="站点名称" name="title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">评论</label>
+          <div class="col-sm-6">
+            <div class="checkbox">
+              <label><input type="checkbox" checked name="comment" value="true">开启评论功能</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" checked name="review" value="true">评论必须经人工批准</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit" class="btn btn-primary">保存设置</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="aside">
+    <div class="profile">
+      <img class="avatar">
+      <h3 class="name"></h3>
+    </div>
+    <ul class="nav">
+      <li>
+        <a href="index.html"><i class="fa fa-dashboard"></i>仪表盘</a>
+      </li>
+      <li>
+        <a href="#menu-posts" class="collapsed" data-toggle="collapse">
+          <i class="fa fa-thumb-tack"></i>文章<i class="fa fa-angle-right"></i>
+        </a>
+        <ul id="menu-posts" class="collapse">
+          <li><a href="posts.html">所有文章</a></li>
+          <li><a href="post-add.html">写文章</a></li>
+          <li><a href="categories.html">分类目录</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="comments.html"><i class="fa fa-comments"></i>评论</a>
+      </li>
+      <li>
+        <a href="users.html"><i class="fa fa-users"></i>用户</a>
+      </li>
+      <li class="active">
+        <a href="#menu-settings" data-toggle="collapse">
+          <i class="fa fa-cogs"></i>设置<i class="fa fa-angle-right"></i>
+        </a>
+        <ul id="menu-settings" class="collapse in">
+          <li><a href="slides.html">图片轮播</a></li>
+          <li class="active"><a href="settings.html">网站设置</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script src="../assets/vendors/jquery/jquery.js"></script>
+  <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/settings.js"></script>
+  <script>NProgress.done()</script>
+</body>
+
+</html>

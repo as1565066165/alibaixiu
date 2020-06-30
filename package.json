@@ -1,0 +1,25 @@
+{
+  "name": "alibaixiu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.16.4",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.15.6",
+    "joi": "^14.0.6",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.9",
+    "mongoose-query-random": "^1.0.1",
+    "mongoose-sex-page": "^1.2.4",
+    "serve-favicon": "^2.5.0",
+    "super-pagination": "^0.5.12"
+  }
+}

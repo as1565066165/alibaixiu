@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>阿里百秀-发现生活，发现美!</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/vendors/nprogress/nprogress.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="topnav">
+      <ul class="navBox"></ul>
+    </div>
+    <div class="header">
+      <h1 class="logo"><a href="index.html"><img src="assets/img/logo.png" alt=""></a></h1>
+      <ul class="nav navBox"></ul>
+      <div class="search">
+        <form>
+          <input type="text" class="keys" placeholder="输入关键字">
+          <input type="submit" class="btn" value="搜索">
+        </form>
+      </div>
+    </div>
+    <div class="aside">
+      <div class="widgets">
+        <h4>搜索</h4>
+        <div class="body search">
+          <form>
+            <input type="text" class="keys" placeholder="输入关键字">
+            <input type="submit" class="btn" value="搜索">
+          </form>
+        </div>
+      </div>
+      <div class="widgets">
+        <h4>随机推荐</h4>
+        <ul class="body random" id="randomBox"></ul>
+      </div>
+      <div class="widgets">
+        <h4>最新评论</h4>
+        <ul class="body discuz" id="commentBox"></ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="article" id="postBox"></div>
+      <div id="commentAreaBox"></div>
+      <div class="comment-list">
+        <h3>用户评论</h3>
+        <ul id="userComments"></ul>
+      </div>
+      <div class="panel hots">
+        <h3>热门推荐</h3>
+        <ul id="recommendBox"></ul>
+      </div>
+    </div>
+    <div class="footer">
+      <p>© 2020 本站由小白程序员完成</p>
+    </div>
+  </div>
+  <script src="assets/vendors/jquery/jquery.js"></script>
+  <script src="assets/vendors/nprogress/nprogress.js"></script>
+  <script src="assets/js/dateformat.js"></script>
+  <script src="assets/vendors/art-template/template-web.js"></script>
+  <script src="assets/js/recommend.js"></script>
+  <script src="assets/js/public.js"></script>
+  <script type="text/html" id="postTpl">
+    <div class="breadcrumb">
+      <dl>
+        <dt>当前位置：</dt>
+        <dd><a href="list.html?categoryId={{category._id}}">{{category.title}}</a></dd>
+        <dd>{{title}}</dd>
+      </dl>
+    </div>
+    <h2 class="title">
+      <a href="javascript:;">{{title}}</a>
+    </h2>
+    <div class="meta">
+      <span>{{author.nickName}} 发布于 {{$imports.formatDate(createAt)}}</span>
+      <span>分类: <a href="list.html?categoryId={{category._id}}">{{category.title}}</a></span>
+      <span>阅读: ({{meta.views}})</span>
+      <span>评论: ({{meta.comments}})</span>
+      <span> <a href="javascript:;" id='like'>赞: ({{meta.likes}})</a> </span>
+      <p style="font-size:20px;margin-top:20px;color:#666;white-space:pre-wrap;">{{content}}</pre>
+      </div>
+  </script>
+  <script type="text/html" id="commentAreaTpl">
+    <style type="text/css">
+      .comment {
+        margin-bottom: 20px;
+      }
+
+      .comment textarea {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%;
+        height: 80px;
+        display: block;
+      }
+
+      .comment input {
+        width: 100px;
+        height: 30px;
+        margin-top: 10px;
+      }
+    </style>
+    <div class="comment">
+      <form>
+        <textarea></textarea>
+        <input type="submit" value="提交评论">
+      </form>
+    </div>
+  </script>
+  <script src="assets/js/detail.js"></script>
+</body>
+
+</html>
