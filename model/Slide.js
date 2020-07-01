@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 // 对象规则验证
 const Joi = require('joi');
 
-// 用户集合规则
+// 轮播图集合规则
 const SlideSchema = new Schema({
 	// 标题
 	title: {
@@ -24,9 +24,9 @@ const SlideSchema = new Schema({
 		type: String,
 		default: null
 	}
-}, {versionKey: false});
+}, { versionKey: false });
 
-// 用户集合类
+// 轮播图集合类
 const Slide = mongoose.model('Slide', SlideSchema);
 
 // 注册数据格式校验

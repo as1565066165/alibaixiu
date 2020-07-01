@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 // 对象规则验证
 const Joi = require('joi');
 
-// 用户集合规则
+// 系统设置集合规则
 const SettingSchema = new Schema({
 	// 网站图标
 	logo: {
@@ -31,9 +31,9 @@ const SettingSchema = new Schema({
 		required: true,
 		default: false
 	}
-}, {versionKey: false});
+}, { versionKey: false });
 
-// 用户集合类
+// 系统设置集合类
 const Setting = mongoose.model('Setting', SettingSchema);
 
 // 注册数据格式校验
