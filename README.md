@@ -28,7 +28,7 @@
 
 所有HTML代码和数据在服务器端拼接好，一次性将所有内容发送到客户端，浏览器执行代码，将内容呈现给用户
 
-![](assets/02.png)
+![02](https://github.com/as1565066165/alibaixiu/blob/master/assets/02.png)
 
 问题：
 
@@ -37,7 +37,7 @@
 
 #### 2.2 前后端分离开发模式
 
-![](assets/03.png)
+![03](https://github.com/as1565066165/alibaixiu/blob/master/assets/03.png)
 
 好处：职责、分工明确，独立开发，互不影响。
 
