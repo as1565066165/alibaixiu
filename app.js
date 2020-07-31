@@ -4,12 +4,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 // 引入路径处理模块
 const path = require('path');
+// 引入压缩compression模块
+const compression = require('compression')
 // 引入session模块
 var session = require('express-session');
 // 处理文件上传
 const formidableMiddleware = require('express-formidable');
 // web服务器
 const app = express();
+// 开启静态资源压缩
+app.use(compression());
 // 开放静态资源
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -23,7 +27,7 @@ Setting.findOne().then((res) => {
 	const logo = res.logo;
 	// 设置网站图标
 	if (logo) {
-		app.use(favicon(path.join(__dirname, 'public', logo)));
+		app.use(favicon(path.join(__dirname, 'public', logo.substr(1).replace('\\', '/'))));
 	}
 });
 
