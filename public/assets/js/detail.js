@@ -59,11 +59,10 @@ $('#commentAreaBox').on('submit', 'form', function () {
 
 // 获取当前文章的评论信息
 $.get('/comments?pId=' + postId, function (response) {
-    console.log(response);
     var userCommentsTpl = `
     {{each data}}
     <li>
-    <a href="detail.html?id={{$value.post}}">
+    <a href="detail.html?id={{$value.post._id}}">
       <div class="avatar">
         <img src="{{$value.author.avatar}}" alt="">
       </div>

@@ -13,7 +13,7 @@ module.exports = app => {
 	// 网站设置
 	app.use('/settings', require('./settings'));
 
-	// 其他
+	// 其他功能
 	// 用户登录
 	app.post('/login', require('./actions/other/login'));
 	// 用户退出

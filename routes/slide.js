@@ -1,4 +1,4 @@
-// 用户路由
+// 轮播图路由
 const slide = require('express').Router();
 
 // 添加轮播图片

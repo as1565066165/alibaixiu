@@ -5,7 +5,7 @@ const category = require('express').Router();
 category.post('/', require('./actions/category/create'));
 // 根据分类ID删除分类信息
 category.delete('/:id', require('./actions/category/findByIdAndDelete'));
-// 查询所有分类
+// 查询所有分类信息
 category.get('/', require('./actions/category/find'));
 // 查询分类数量
 category.get('/count', require('./actions/category/count'));

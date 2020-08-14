@@ -1,4 +1,4 @@
-// 用户路由
+// 系统设置路由
 const settings = require('express').Router();
 
 // 添加网站设置

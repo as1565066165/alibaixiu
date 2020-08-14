@@ -48,7 +48,7 @@ $.get('/settings', function (response) {
         // 设置开启评论功能
         $('input[name="comment"]').prop('checked', response.comment);
         // 设置评论必须经人工批准
-        $('input[name="preview"]').prop('checked', response.preview);
+        $('input[name="review"]').prop('checked', response.review);
     }
 
 })

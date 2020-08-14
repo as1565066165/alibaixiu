@@ -15,7 +15,6 @@ const CommentSchema = new Schema({
 	// 评论内容
 	content: {
 		type: String,
-		minlength: 4,
 		required: true
 	},
 	// 评论文章
@@ -39,14 +38,14 @@ const CommentSchema = new Schema({
 // 创建分类集合
 const Comment = mongoose.model('Comment', CommentSchema);
 
-// 文章分类格式校验（路由级别）
+// 评论格式校验（路由级别）
 const validateComment = comment => {
 	// _id验证规则
 	const objectIdReg = /^[0-9a-fA-F]{24}$/;
 	// 定义对象验证规则
 	const schema = {
 		author: Joi.string().regex(objectIdReg).required().error(new Error('用户ID非法')),
-		content: Joi.string().min(4).required().error(new Error('评论不符合格式要求')),
+		content: Joi.string().required().error(new Error('评论不符合格式要求')),
 		post: Joi.string().regex(objectIdReg).required().error(new Error('评论文章ID非法')),
 		state: Joi.number().valid(0, 1)
 	};
