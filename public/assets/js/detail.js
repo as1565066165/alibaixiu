@@ -7,7 +7,9 @@ var review;
 // 向服务器发送请求 根据id查询文章信息
 $.get('/posts/' + postId, function (response) {
     var html = template('postTpl', response);
+    var html1 = template('headTpl', response);
     $('#postBox').html(html);
+    $('head').html(html1);
 });
 
 // 如果用户点击了点赞按钮
