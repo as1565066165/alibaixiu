@@ -89,7 +89,7 @@ const validateLogin = user => {
 	});
 }
 
-User.findOne({ 'email': 'itcast@qq.com' }).then(async result => {
+User.findOne({ 'email': 'admin@qq.com' }).then(async result => {
 	if (result == null) {
 		// 生成盐
 		const salt = await bcrypt.genSalt(10);
@@ -97,8 +97,8 @@ User.findOne({ 'email': 'itcast@qq.com' }).then(async result => {
 		const password = await bcrypt.hash('123456', salt);
 
 		const user = await User.create({
-			nickName: 'Coder',
-			email: 'itcast@qq.com',
+			nickName: 'Admin',
+			email: 'admin@qq.com',
 			password: password,
 			role: 'admin',
 			avatar: null,
