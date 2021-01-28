@@ -69,31 +69,31 @@
 
 ​      （2） 如果想用账号密码登录数据库。请参考：https://www.cnblogs.com/b02330224/p/10049395.html
 
-​       在命令行依次输入命令：use alibaixiu    #进入alibaixiu数据库
+​       在命令行依次输入命令：`use alibaixiu `   #进入alibaixiu数据库
 
-​                                                  db.createUser({user:'itcast',pwd:'itcast',roles:['readWrite']})   #创建数据库用户
+​                                                  `db.createUser({user:'itcast',pwd:'itcast',roles:['readWrite']})`   #创建数据库用户
 
 ​       如果提示权限不够，请参考上面的链接，先用mongodb管理员账号登录数据库。
 
 ​    7.（新增步骤）最近，新上传了db_data数据库数据，可以通过mongodb-compass软件进入alibaixiu数据库，
 
-​       创建与db_data文件夹中json数据，相同的名称的users、comment、slides、categories、posts、settings集合
+​       创建与db_data文件夹中json数据，相同的名称的`users`、`comment`、`slides`、`categories`、`posts`、`settings`集合
 
 ​     （Collection），最后依次在每个集合导入相应json数据。
 
 ![importdata](https://github.com/as1565066165/alibaixiu/blob/master/assets/importdata.png)
 
-​    8.在命令行工具中输入node app.js开启项目
+​    8.在命令行工具中输入`node app.js`开启项目
 
 
 
-## 5.项目运行后注意事项（运行项目必须知道的事情）
+## 5.项目运行后注意事项（运行 `好看的项目` 必须知道的事情）
 
 1.打开浏览器,在浏览器地址栏中输入localhost:3000/admin/login.html 进入登录页面
 
    输入系统默认用户名:（原来）itcast@qq.com  （现在）admin@qq.com密码:123456  进入管理员页面
 
-2.由于没有上传数据库文件 所有的数据都需要自己实现手动添加
+2.由于没有上传数据库文件 所有的数据都需要自己实现手动添加（如果引入了db_data中的json数据，跳过2-10步骤）
 
 3.进入管理员页面 首先更改自己的账号信息（修改密码等）、上传用户头像
 
