@@ -65,9 +65,25 @@
 
 ​       为'mongodb://localhost:27017/alibaixiu'
 
-​       原因:你没有创建mongodb数据库连接账号和密码信息，我们选择用默认的方式登录mongodb数据库
+​      （1） 原因:你没有创建mongodb数据库连接账号和密码信息，我们选择用默认的方式登录mongodb数据库。
 
-7. 在命令行工具中输入node app.js开启项目
+​      （2） 如果想用账号密码登录数据库。请参考：https://www.cnblogs.com/b02330224/p/10049395.html
+
+​       在命令行依次输入命令：use alibaixiu    #进入alibaixiu数据库
+
+​                                                  db.createUser({user:'itcast',pwd:'itcast',roles:['readWrite']})   #创建数据库用户
+
+​       如果提示权限不够，请参考上面的链接，先用mongodb管理员账号登录数据库。
+
+​    7.（新增步骤）最近，新上传了db_data数据库数据，可以通过mongodb-compass软件进入alibaixiu数据库，
+
+​       创建与db_data文件夹中json数据，相同的名称的users、comment、slides、categories、posts、settings集合
+
+​     （Collection），最后依次在每个集合导入相应json数据。
+
+![importdata](https://github.com/as1565066165/alibaixiu/blob/master/assets/importdata.png)
+
+​    8.在命令行工具中输入node app.js开启项目
 
 
 
