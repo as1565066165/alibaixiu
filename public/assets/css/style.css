@@ -1362,7 +1362,7 @@ img {
     height: 160px;
   }
   .content .swipe li img {
-    width: auto;
+    width: 100%;
     max-width: none;
     height: 100%;
   }
