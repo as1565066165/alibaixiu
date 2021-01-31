@@ -131,9 +131,9 @@
 
 ## 6.项目地址
 
-首页：http://luoxu.ltd:3000/
+首页：http://luoxu.ltd:3000/ （域名备案中暂且换到http://luoxucoder.icu）
 
-登录页面：http://luoxu.ltd:3000/admin/login.html
+登录页面：http://luoxu.ltd:3000/admin/login.html (同理)
 
 # 项目效果展示
 
