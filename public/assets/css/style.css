@@ -1318,6 +1318,9 @@ img {
   font-size: 12px;
   color: #999;
 }
+.footer p {
+    text-align: center;
+}
 
 /* responsed */
 
