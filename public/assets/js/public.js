@@ -18,9 +18,25 @@ $.get('/posts/random', function (response) {
 
 });
 
+if (!isComment) {
+  // 获取网站配置
+  var isComment;
+  $.get('/settings', function (response) {
+    isComment = response.comment
+  })
+}
+
 // 向服务器发送请求 获取最新评论数据
 $.get('/comments/lasted', function (response) {
-  var commentTpl = `
+  var commentTpl;
+  if (isComment) {
+    commentTpl = `
+    <h3 style="display: inline-block;
+    margin-bottom: 10px;
+    line-height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #ff5e52;">最新评论</h3>
     {{each data}}
     <li>
     <a href="detail.html?id={{$value.post}}">
@@ -37,6 +53,9 @@ $.get('/comments/lasted', function (response) {
   </li>
   {{/each}}
     `;
+  } else {
+    commentTpl = `<h4>找不到内容哟！</h4>`;
+  }
   var html = template.render(commentTpl, { data: response });
   $('#commentBox').html(html);
 
@@ -55,7 +74,7 @@ $.get('/categories', function (response) {
 });
 
 // 从浏览器的地址栏中获取查询参数
-function getUrlParams(name) {
+function getUrlParams (name) {
   var paramsAry = location.search.substr(1).split('&');
   for (var i = 0; i < paramsAry.length; i++) {
     var temp = paramsAry[i].split('=');
