@@ -15,7 +15,7 @@
     "express-formidable": "^1.2.0",
     "express-session": "^1.15.6",
     "joi": "^14.0.6",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "mongoose": "^5.3.9",
     "mongoose-query-random": "^1.0.1",
     "mongoose-sex-page": "^1.2.4",
