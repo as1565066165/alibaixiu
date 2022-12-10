@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-formidable": "^1.2.0",
     "express-session": "^1.15.6",
     "joi": "^14.0.6",
